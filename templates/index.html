@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Breast cancer prediction system</title>
+  <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <title>Responsive Regisration Form </title> 
+</head>
+
+  <style>
+    /* CSS code for button */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+    body {
+      background: #4070f4;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    .container{
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    border-radius: 6px;
+    padding: 30px;
+    margin: 0 15px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+.container header{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+.container header::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 3px;
+    width: 27px;
+    border-radius: 8px;
+    background-color: #4070f4;
+}
+    /* CSS code for button */
+    .button_css {
+    color: #494949 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #9a8f8f;
+    padding: 800px;
+    border: 8px solid #494949 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    }
+    
+  </style>
+
+</head>
+
+<body>
+
+ <div class="login">
+	
+    <!-- Get input for predict the cancer -->
+    <left>
+    <form action="{{ url_for('predict')}}"method="post">
+        
+    	<input type="text" name="radius_mean" placeholder="mean radius" required="required" />
+        <input type="text" name="texture_mean" placeholder="mean texture" required="required" />
+		<input type="text" name="perimeter_mean" placeholder="mean perimeter" required="required" />
+		<input type="text" name="area_mean" placeholder="mean area" required="required" />
+        <input type="text" name="smoothness_mean" placeholder="mean smoothness" required="required" />
+		<input type="text" name="compactness_mean" placeholder="mean compactness" required="required" />
+		<br>
+    	<input type="text" name="concavity_mean" placeholder="mean concavity" required="required" />
+        <input type="text" name="concave points_mean" placeholder="mean concave points" required="required" />
+		<input type="text" name="symmetry_mean" placeholder="mean symmetry" required="required" />
+    	<input type="text" name="fractal_dimension_mean" placeholder="mean fractal dimension" required="required" />
+        <input type="text" name="radius_se" placeholder="radius error" required="required" />
+		<input type="text" name="texture_se" placeholder="texture error" required="required" />
+		<br>
+    	<input type="text" name="perimeter_se" placeholder="perimeter error" required="required" />
+        <input type="text" name="area_se" placeholder="area error" required="required" />
+		<input type="text" name="smoothness_se" placeholder="smoothness error" required="required" />
+    	<input type="text" name="compactness_se" placeholder="compactness error" required="required" />
+        <input type="text" name="concavity_se" placeholder="concavity error" required="required" />
+		<input type="text" name="concave points_se" placeholder="concave points error" required="required" />
+    	<br>
+    	<input type="text" name="symmetry_se" placeholder="symmetry error" required="required" />
+        <input type="text" name="fractal_dimension_se" placeholder="fractal dimension error" required="required" />
+		<input type="text" name="radius_worst" placeholder="worst radius" required="required" />
+    	<input type="text" name="texture_worst" placeholder="worst texture" required="required" />
+        <input type="text" name="perimeter_worst" placeholder="worst perimeter" required="required" />
+		<input type="text" name="area_worst" placeholder="worst area" required="required" />
+		<br>
+    	<input type="text" name="smoothness_worst" placeholder="worst smoothness" required="required" />
+        <input type="text" name="compactness_worst" placeholder="worst compactness" required="required" />
+		<input type="text" name="concavity_worst" placeholder="worst concavity" required="required" />
+    	<input type="text" name="concave points_worst" placeholder="worst concave points" required="required" />
+        <input type="text" name="symmetry_worst" placeholder="worst symmetry" required="required" />
+		<input type="text" name="fractal_dimension_worst" placeholder="worst fractal dimension" required="required" />
+        <br>
+        <br>
+        
+        <!-- Show button -->
+        <div class="button_cont" align="left">
+            <button type="submit" class="btn btn-primary btn-block btn-large"><strong>Predict</strong></button></a>
+        </div>
+        
+    </form>
+</left>
+   
+   <!-- Show predicted output using ML model --> 
+   <div>
+       <left>
+   <h1>{{ prediction_text }}</h1>
+       </left>
+   </div>
+
+ </div>
+
+</body>
+</html>
