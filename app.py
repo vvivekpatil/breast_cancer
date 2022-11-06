@@ -34,7 +34,7 @@ def predict():
         res_val = "Thank god patient don't have a cancer"
         
 
-    return render_template('index.html', prediction_text='Patient has {}'.format(res_val))
+    return render_template('index.html', prediction_text='{}'.format(res_val))
 
 if __name__ == "__main__":
     app.run()
