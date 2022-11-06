@@ -29,7 +29,7 @@ def predict():
     output = model.predict(df)
         
     if output == 1:
-        res_val = "Patient having breast cancer.. Take care **"
+        res_val = "Patient having breast cancer.. Take care"
     else:
         res_val = "Thank god patient don't have a cancer"
         
